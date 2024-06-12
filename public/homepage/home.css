@@ -1,0 +1,28 @@
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeOut 1s ease-in-out 3s forwards;
+  }
+  
+  .logo {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  
+  .content {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
