@@ -32,7 +32,7 @@ const SurveyForm = () => {
   };
 
   return (
-    <div>
+    <div className="survey-container">
       {renderSurvey()}
     </div>
   );
