@@ -39,25 +39,17 @@ const AdminSurvey = ({ onNext }) => {
   };
 
   return (
-    <div className="survey-container">
-      <div className="survey-header">
-        <h1>Administrator Survey</h1>
-        <p>Please answer the following questions:</p>
-      </div>
+    <div>
+      <h2>Administrator Survey</h2>
       {adminQuestions.map((question) => (
-        <div key={question.id} className="survey-question">
+        <div key={question.id}>
           <label>{question.text}</label>
           <textarea
-            className="survey-input"
             value={answers[question.id] || ''}
             onChange={(e) => handleAnswerChange(question.id, e.target.value)}
           />
         </div>
       ))}
-      <div className="survey-navigation">
-        <button>Previous</button>
-        <button onClick={onNext}>Next</button>
-      </div>
     </div>
   );
 };

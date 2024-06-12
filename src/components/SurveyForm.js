@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './survey.css'; // Import the survey styles from the src folder
 import StakeholderSelection from './StakeholderSelection';
 import AdminSurvey from './AdminSurvey';
 import CaseworkerSurvey from './CaseworkerSurvey';
@@ -32,7 +31,7 @@ const SurveyForm = () => {
   };
 
   return (
-    <div className="survey-container">
+    <div>
       {renderSurvey()}
     </div>
   );
