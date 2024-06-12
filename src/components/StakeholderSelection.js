@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+
+
 const SelectContainer = styled.div`
   margin-bottom: 1rem;
 `;
@@ -39,5 +41,27 @@ const StakeholderSelection = ({ onSurveySelect }) => {
     </SelectContainer>
   );
 };
+
+// Get the form element
+const surveyForm = document.getElementById('stakeholderSurvey');
+
+// Add an event listener for the submit event
+surveyForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  // Get the form data
+  const formData = new FormData(surveyForm);
+
+  // Process the form data or send it to your backend service
+  processFormData(formData);
+});
+
+// Function to process the form data
+function processFormData(formData) {
+  // Your code to handle the form data goes here
+  // For example, you can send the data to a backend service using an AJAX request
+  // or perform any other desired actions
+  console.log('Form data:', formData);
+}
 
 export default StakeholderSelection;

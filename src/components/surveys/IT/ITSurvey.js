@@ -11,7 +11,7 @@ const ITSurvey = () => {
     }, 
     { 
       id: 2, 
-      text: 'What technical requirements and considerations need to be addressed for the automation project?', 
+      text: 'What functional & non-functional requirements and considerations need to be addressed to fully automate the VMS?', 
       type: 'textarea', 
     }, 
     { 
