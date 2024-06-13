@@ -38,10 +38,6 @@ const FinanceSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastNam
     }));
   };
 
-  const handleSubmit = () => {
-    onSubmit(answers);
-  };
-
   return (
     <div>
       <h2>Finance Department Survey</h2>
@@ -70,7 +66,6 @@ const FinanceSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastNam
           />
         </div>
       ))}
-      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

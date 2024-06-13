@@ -38,10 +38,6 @@ const AdminSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastName 
     }));
   };
 
-  const handleSubmit = () => {
-    onSubmit(answers);
-  };
-
   return (
     <div>
       <h2>Administrator Survey</h2>
@@ -70,7 +66,6 @@ const AdminSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastName 
           />
         </div>
       ))}
-      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
