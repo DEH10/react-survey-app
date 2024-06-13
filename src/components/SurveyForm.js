@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import StakeholderSelection from './StakeholderSelection';
 import AdminSurvey from './AdminSurvey';
 import ITSurvey from './ITSurvey';
@@ -13,46 +13,28 @@ const SurveyForm = ({ handleSubmit }) => {
     setSelectedSurvey(survey);
   };
 
-  const handleSurveySubmit = (data) => {
-    handleSubmit({ ...data, firstName, lastName });
-  };
-
-  const memoizedSetFirstName = useCallback((value) => {
-    setFirstName(value);
-  }, []);
-
-  const memoizedSetLastName = useCallback((value) => {
-    setLastName(value);
-  }, []);
-
   const renderSurvey = () => {
     return (
       <div>
         {selectedSurvey === 'administrator' && (
           <AdminSurvey
-            onSubmit={handleSurveySubmit}
+            onSubmit={handleSubmit}
             firstName={firstName}
             lastName={lastName}
-            setFirstName={memoizedSetFirstName}
-            setLastName={memoizedSetLastName}
           />
         )}
         {selectedSurvey === 'it' && (
           <ITSurvey
-            onSubmit={handleSurveySubmit}
+            onSubmit={handleSubmit}
             firstName={firstName}
             lastName={lastName}
-            setFirstName={memoizedSetFirstName}
-            setLastName={memoizedSetLastName}
           />
         )}
         {selectedSurvey === 'finance' && (
           <FinanceSurvey
-            onSubmit={handleSurveySubmit}
+            onSubmit={handleSubmit}
             firstName={firstName}
             lastName={lastName}
-            setFirstName={memoizedSetFirstName}
-            setLastName={memoizedSetLastName}
           />
         )}
         {!selectedSurvey && <StakeholderSelection onSurveySelect={handleSurveySelect} />}

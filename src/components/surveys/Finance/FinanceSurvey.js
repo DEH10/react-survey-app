@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
-const FinanceSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastName }) => {
+const FinanceSurvey = ({ onSubmit, firstName, lastName }) => {
   const [answers, setAnswers] = useState({});
 
   const financeQuestions = [
@@ -38,6 +38,14 @@ const FinanceSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastNam
     }));
   };
 
+  const memoizedSetFirstName = useCallback((value) => {
+    onSubmit({ ...answers, firstName: value, lastName });
+  }, [answers, lastName, onSubmit]);
+
+  const memoizedSetLastName = useCallback((value) => {
+    onSubmit({ ...answers, firstName, lastName: value });
+  }, [answers, firstName, onSubmit]);
+
   return (
     <div>
       <h2>Finance Department Survey</h2>
@@ -46,14 +54,14 @@ const FinanceSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastNam
           type="text"
           placeholder="First Name"
           value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={(e) => memoizedSetFirstName(e.target.value)}
           required
         />
         <input
           type="text"
           placeholder="Last Name"
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => memoizedSetLastName(e.target.value)}
           required
         />
       </div>
