@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AdminSurvey = ({ onNext }) => {
+const AdminSurvey = ({ onSubmit, firstName, lastName, setFirstName, setLastName }) => {
   const [answers, setAnswers] = useState({});
 
   const adminQuestions = [
@@ -38,9 +38,29 @@ const AdminSurvey = ({ onNext }) => {
     }));
   };
 
+  const handleSubmit = () => {
+    onSubmit(answers);
+  };
+
   return (
     <div>
       <h2>Administrator Survey</h2>
+      <div>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+      </div>
       {adminQuestions.map((question) => (
         <div key={question.id}>
           <label>{question.text}</label>
@@ -50,6 +70,7 @@ const AdminSurvey = ({ onNext }) => {
           />
         </div>
       ))}
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/functions';
 import { firebaseConfig } from './firebase';
 
+
 firebase.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
