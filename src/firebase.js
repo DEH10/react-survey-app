@@ -2,7 +2,6 @@ import firebase from 'firebase/compat/app'; // For compatibility with older vers
 import 'firebase/compat/firestore'; // For Firestore
 import 'firebase/compat/functions'; // For Cloud Functions
 
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC60mFZLpUfPlyqVDhmOm-KdM2cvVdVZtQ",

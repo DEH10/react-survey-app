@@ -8,10 +8,8 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/functions';
 import { firebaseConfig } from './firebase';
 
-
 firebase.initializeApp(firebaseConfig);
 
-const firestore = firebase.firestore();
 const functions = firebase.functions();
 
 function App() {
@@ -23,12 +21,6 @@ function App() {
 
   const handleSubmit = async (data) => {
     try {
-      // For Firestore
-      const surveysRef = firestore.collection('surveys');
-      await surveysRef.add(data);
-      console.log('Survey submitted successfully');
-
-      // For Cloud Functions
       const submitSurvey = functions.httpsCallable('submitSurvey');
       const response = await submitSurvey(data);
       console.log('Survey submitted successfully:', response.data);
